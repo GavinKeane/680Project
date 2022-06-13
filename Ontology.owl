@@ -4,207 +4,242 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3> .
+@base <http://www.semanticweb.org/gavinkeane/fastfoo> .
 
-<http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3> rdf:type owl:Ontology .
+<http://www.semanticweb.org/gavinkeane/fastfoo> rdf:type owl:Ontology .
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Comprised_Of
-:Comprised_Of rdf:type owl:ObjectProperty ;
-              rdfs:domain [ rdf:type owl:Restriction ;
-                            owl:onProperty :Comprised_Of ;
-                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onClass :Latitude
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :Comprised_Of ;
-                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onClass :Longitude
-                          ] ;
-              rdfs:range [ rdf:type owl:Restriction ;
-                           owl:onProperty :Comprises ;
-                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onClass :Coordinates
-                         ] .
+###  http://www.semanticweb.org/gavinkeane/fastfoo#At_Address
+:At_Address rdf:type owl:ObjectProperty ;
+            rdfs:domain <http://www.semanticweb.org/gavinkeane/fastfood#Restaurant> ;
+            rdfs:range <http://www.semanticweb.org/gavinkeane/fastfood#Address> ;
+            rdfs:label "At_Address"@en .
 
 
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Comprises
-:Comprises rdf:type owl:ObjectProperty ;
-           rdfs:domain [ rdf:type owl:Restriction ;
-                         owl:onProperty :Comprises ;
-                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                         owl:onClass :Coordinates
-                       ] ;
-           rdfs:range [ rdf:type owl:Restriction ;
-                        owl:onProperty :Comprised_Of ;
-                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Latitude
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :Comprised_Of ;
-                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Longitude
-                      ] .
+###  http://www.semanticweb.org/gavinkeane/fastfoo#Has_Website
+:Has_Website rdf:type owl:ObjectProperty ;
+             rdfs:domain <http://www.semanticweb.org/gavinkeane/fastfood#Restaurant> ;
+             rdfs:range <http://www.semanticweb.org/gavinkeane/fastfood#Website> ;
+             rdfs:label "Has_Website"@en .
 
 
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Is_Type
-:Is_Type rdf:type owl:ObjectProperty ;
-         owl:inverseOf :Type_Of ;
-         rdfs:domain [ rdf:type owl:Restriction ;
-                       owl:onProperty :Is_Type ;
-                       owl:someValuesFrom :Restraunt
-                     ] ;
-         rdfs:range [ rdf:type owl:Restriction ;
-                      owl:onProperty :Is_Type ;
-                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                      owl:onClass :RestaurantType
-                    ] .
+###  http://www.semanticweb.org/gavinkeane/fastfoo#Has_Zip_Code
+:Has_Zip_Code rdf:type owl:ObjectProperty ;
+              rdfs:domain <http://www.semanticweb.org/gavinkeane/fastfood#Restaurant> ;
+              rdfs:range <http://www.semanticweb.org/gavinkeane/fastfood#Postal_Code> ;
+              rdfs:label "Has_Zip_Code"@en .
 
 
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Type_Of
-:Type_Of rdf:type owl:ObjectProperty ;
-         rdfs:domain [ rdf:type owl:Restriction ;
-                       owl:onProperty :Is_Type ;
-                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                       owl:onClass :RestaurantType
-                     ] ;
-         rdfs:range [ rdf:type owl:Restriction ;
-                      owl:onProperty :Is_Type ;
-                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                      owl:onClass :Restraunt
-                    ] .
+###  http://www.semanticweb.org/gavinkeane/fastfoo#In_City
+:In_City rdf:type owl:ObjectProperty ;
+         rdfs:domain <http://www.semanticweb.org/gavinkeane/fastfood#Restaurant> ;
+         rdfs:range <http://www.semanticweb.org/gavinkeane/fastfood#City> ;
+         rdfs:label "In_City"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/fastfoo#In_Country
+:In_Country rdf:type owl:ObjectProperty ;
+            rdfs:domain <http://www.semanticweb.org/gavinkeane/fastfood#Restaurant> ;
+            rdfs:range <http://www.semanticweb.org/gavinkeane/fastfood#Country> ;
+            rdfs:label "In_Country"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/fastfoo#In_State
+:In_State rdf:type owl:ObjectProperty ;
+          rdfs:domain <http://www.semanticweb.org/gavinkeane/fastfood#Restaurant> ;
+          rdfs:range <http://www.semanticweb.org/gavinkeane/fastfood#State> ;
+          rdfs:label "In_State"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/fastfoo#Located_At
+:Located_At rdf:type owl:ObjectProperty ;
+            rdfs:domain <http://www.semanticweb.org/gavinkeane/fastfood#Restaurant> ;
+            rdfs:range <http://www.semanticweb.org/gavinkeane/fastfood#Coordinates> ;
+            rdfs:label "Located_At_Coords"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/fastfood#Comprised_Of
+<http://www.semanticweb.org/gavinkeane/fastfood#Comprised_Of> rdf:type owl:ObjectProperty ;
+                                                              owl:inverseOf <http://www.semanticweb.org/gavinkeane/fastfood#Comprises> ;
+                                                              rdfs:domain [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty <http://www.semanticweb.org/gavinkeane/fastfood#Comprised_Of> ;
+                                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                            owl:onClass <http://www.semanticweb.org/gavinkeane/fastfood#Latitude>
+                                                                          ] ,
+                                                                          [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty <http://www.semanticweb.org/gavinkeane/fastfood#Comprised_Of> ;
+                                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                            owl:onClass <http://www.semanticweb.org/gavinkeane/fastfood#Longitude>
+                                                                          ] ;
+                                                              rdfs:range [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty <http://www.semanticweb.org/gavinkeane/fastfood#Comprises> ;
+                                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                           owl:onClass <http://www.semanticweb.org/gavinkeane/fastfood#Coordinates>
+                                                                         ] ;
+                                                              rdfs:label "Comprised_Of"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/fastfood#Comprises
+<http://www.semanticweb.org/gavinkeane/fastfood#Comprises> rdf:type owl:ObjectProperty ;
+                                                           rdfs:domain [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.semanticweb.org/gavinkeane/fastfood#Comprises> ;
+                                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                         owl:onClass <http://www.semanticweb.org/gavinkeane/fastfood#Coordinates>
+                                                                       ] ;
+                                                           rdfs:range [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty <http://www.semanticweb.org/gavinkeane/fastfood#Comprised_Of> ;
+                                                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                        owl:onClass <http://www.semanticweb.org/gavinkeane/fastfood#Latitude>
+                                                                      ] ,
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty <http://www.semanticweb.org/gavinkeane/fastfood#Comprised_Of> ;
+                                                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                        owl:onClass <http://www.semanticweb.org/gavinkeane/fastfood#Longitude>
+                                                                      ] ;
+                                                           rdfs:label "Comprises"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/fastfood#Is_Type
+<http://www.semanticweb.org/gavinkeane/fastfood#Is_Type> rdf:type owl:ObjectProperty ;
+                                                         rdfs:domain <http://www.semanticweb.org/gavinkeane/fastfood#Restaurant> ;
+                                                         rdfs:range <http://www.semanticweb.org/gavinkeane/fastfood#RestaurantType> ;
+                                                         rdfs:label "Is_Type"@en .
 
 
 #################################################################
 #    Data properties
 #################################################################
 
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Has_Name
-:Has_Name rdf:type owl:DatatypeProperty .
+###  http://www.semanticweb.org/gavinkeane/fastfoo#Address
+:Address rdf:type owl:DatatypeProperty ;
+         rdfs:isDefinedBy ""@en ;
+         rdfs:label "Address"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/fastfoo#City
+:City rdf:type owl:DatatypeProperty ;
+      rdfs:isDefinedBy ""@en ;
+      rdfs:label "City"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/fastfoo#Coordinates
+:Coordinates rdf:type owl:DatatypeProperty ;
+             rdfs:label "Coordinates"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/fastfoo#Country
+:Country rdf:type owl:DatatypeProperty ;
+         rdfs:isDefinedBy ""^^rdfs:Literal ;
+         rdfs:label "Country"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/fastfoo#Latitude
+:Latitude rdf:type owl:DatatypeProperty ;
+          rdfs:isDefinedBy ""^^xsd:long ;
+          rdfs:label "Latitude"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/fastfoo#Longitude
+:Longitude rdf:type owl:DatatypeProperty ;
+           rdfs:isDefinedBy ""^^xsd:long ;
+           rdfs:label "Longitude"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/fastfoo#Name
+:Name rdf:type owl:DatatypeProperty ;
+      rdfs:isDefinedBy ""@en ;
+      rdfs:label "Name"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/fastfoo#Postal_Code
+:Postal_Code rdf:type owl:DatatypeProperty ;
+             rdfs:isDefinedBy ""@en ;
+             rdfs:label "Postal_Code"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/fastfoo#State
+:State rdf:type owl:DatatypeProperty ;
+       rdfs:isDefinedBy ""@en ;
+       rdfs:label "State"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/fastfoo#Type
+:Type rdf:type owl:DatatypeProperty ;
+      rdfs:isDefinedBy ""@en ;
+      rdfs:label "Type"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/fastfoo#Website
+:Website rdf:type owl:DatatypeProperty ;
+         rdfs:isDefinedBy ""@en ;
+         rdfs:label "Website"@en .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Address
-:Address rdf:type owl:Class .
+###  http://www.semanticweb.org/gavinkeane/fastfood#Address
+<http://www.semanticweb.org/gavinkeane/fastfood#Address> rdf:type owl:Class ;
+                                                         rdfs:label "Address"@en .
 
 
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#American_Restaurant
-:American_Restaurant rdf:type owl:Class ;
-                     rdfs:subClassOf :RestaurantType .
+###  http://www.semanticweb.org/gavinkeane/fastfood#City
+<http://www.semanticweb.org/gavinkeane/fastfood#City> rdf:type owl:Class ;
+                                                      rdfs:label "City"@en .
 
 
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Burger_Joint
-:Burger_Joint rdf:type owl:Class ;
-              rdfs:subClassOf :RestaurantType .
+###  http://www.semanticweb.org/gavinkeane/fastfood#Coordinates
+<http://www.semanticweb.org/gavinkeane/fastfood#Coordinates> rdf:type owl:Class ;
+                                                             rdfs:label "Coordinates"@en .
 
 
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#City
-:City rdf:type owl:Class .
+###  http://www.semanticweb.org/gavinkeane/fastfood#Country
+<http://www.semanticweb.org/gavinkeane/fastfood#Country> rdf:type owl:Class ;
+                                                         rdfs:label "Country"@en .
 
 
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Coordinates
-:Coordinates rdf:type owl:Class .
+###  http://www.semanticweb.org/gavinkeane/fastfood#Latitude
+<http://www.semanticweb.org/gavinkeane/fastfood#Latitude> rdf:type owl:Class ;
+                                                          rdfs:label "Latitude"@en .
 
 
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Country
-:Country rdf:type owl:Class .
+###  http://www.semanticweb.org/gavinkeane/fastfood#Longitude
+<http://www.semanticweb.org/gavinkeane/fastfood#Longitude> rdf:type owl:Class ;
+                                                           rdfs:label "Longitude"@en .
 
 
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Fast_Food
-:Fast_Food rdf:type owl:Class ;
-           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                 owl:onProperty owl:topObjectProperty ;
-                                 owl:someValuesFrom :Fast_Food_Restaurant
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty owl:topObjectProperty ;
-                                 owl:someValuesFrom :Fast_Food_Restaurants
-                               ] ;
-           rdfs:subClassOf :RestaurantType .
+###  http://www.semanticweb.org/gavinkeane/fastfood#Postal_Code
+<http://www.semanticweb.org/gavinkeane/fastfood#Postal_Code> rdf:type owl:Class ;
+                                                             rdfs:label "Postal_Code"@en .
 
 
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Fast_Food_Restaurant
-:Fast_Food_Restaurant rdf:type owl:Class ;
-                      owl:equivalentClass [ rdf:type owl:Restriction ;
-                                            owl:onProperty owl:topObjectProperty ;
-                                            owl:someValuesFrom :Fast_Food
-                                          ] ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty owl:topObjectProperty ;
-                                            owl:someValuesFrom :Fast_Food_Restaurants
-                                          ] ;
-                      rdfs:subClassOf :RestaurantType .
+###  http://www.semanticweb.org/gavinkeane/fastfood#Restaurant
+<http://www.semanticweb.org/gavinkeane/fastfood#Restaurant> rdf:type owl:Class ;
+                                                            rdfs:label "Restaurant"@en .
 
 
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Fast_Food_Restaurants
-:Fast_Food_Restaurants rdf:type owl:Class ;
-                       owl:equivalentClass [ rdf:type owl:Restriction ;
-                                             owl:onProperty owl:topObjectProperty ;
-                                             owl:someValuesFrom :Fast_Food
-                                           ] ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty owl:topObjectProperty ;
-                                             owl:someValuesFrom :Fast_Food_Restaurant
-                                           ] ;
-                       rdfs:subClassOf :RestaurantType .
+###  http://www.semanticweb.org/gavinkeane/fastfood#RestaurantName
+<http://www.semanticweb.org/gavinkeane/fastfood#RestaurantName> rdf:type owl:Class ;
+                                                                rdfs:label "Restaurant_Name"@en .
 
 
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Ice_Cream_Shop
-:Ice_Cream_Shop rdf:type owl:Class ;
-                rdfs:subClassOf :RestaurantType .
+###  http://www.semanticweb.org/gavinkeane/fastfood#RestaurantType
+<http://www.semanticweb.org/gavinkeane/fastfood#RestaurantType> rdf:type owl:Class ;
+                                                                rdfs:label "RestaurantType"@en .
 
 
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Latitude
-:Latitude rdf:type owl:Class .
+###  http://www.semanticweb.org/gavinkeane/fastfood#State
+<http://www.semanticweb.org/gavinkeane/fastfood#State> rdf:type owl:Class ;
+                                                       rdfs:label "State"@en .
 
 
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Longitude
-:Longitude rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Mexican_Restaurant
-:Mexican_Restaurant rdf:type owl:Class ;
-                    rdfs:subClassOf :RestaurantType .
-
-
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Pizza_Place
-:Pizza_Place rdf:type owl:Class ;
-             rdfs:subClassOf :RestaurantType .
-
-
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Postal_Code
-:Postal_Code rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#RestaurantType
-:RestaurantType rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Restraunt
-:Restraunt rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#RestrauntName
-:RestrauntName rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Sandwich_Place
-:Sandwich_Place rdf:type owl:Class ;
-                rdfs:subClassOf :RestaurantType .
-
-
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#State
-:State rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Website
-:Website rdf:type owl:Class .
+###  http://www.semanticweb.org/gavinkeane/fastfood#Website
+<http://www.semanticweb.org/gavinkeane/fastfood#Website> rdf:type owl:Class ;
+                                                         rdfs:label "Website"@en .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
