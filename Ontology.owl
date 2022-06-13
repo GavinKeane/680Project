@@ -87,53 +87,6 @@ owl:topDataProperty rdfs:range rdfs:Literal .
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/gavinkeane/fastfood#BurgerJoint
-:BurgerJoint rdf:type owl:Class ;
-             rdfs:subClassOf <http://www.semanticweb.org/gavinkeane/fastfoodd#Restaurant> ;
-             rdfs:label "Burger Joint"@en .
-
-
-###  http://www.semanticweb.org/gavinkeane/fastfood#Chinese_Restaurant
-:Chinese_Restaurant rdf:type owl:Class ;
-                    rdfs:subClassOf <http://www.semanticweb.org/gavinkeane/fastfoodd#Restaurant> ;
-                    rdfs:label "Chinese Restaurant"@en .
-
-
-###  http://www.semanticweb.org/gavinkeane/fastfood#FastFood
-:FastFood rdf:type owl:Class ;
-          rdfs:subClassOf <http://www.semanticweb.org/gavinkeane/fastfoodd#Restaurant> ;
-          rdfs:label "Fast Food"@en .
-
-
-###  http://www.semanticweb.org/gavinkeane/fastfood#Italian_Restaurant
-:Italian_Restaurant rdf:type owl:Class ;
-                    rdfs:subClassOf <http://www.semanticweb.org/gavinkeane/fastfoodd#Restaurant> ;
-                    rdfs:label "Italian Restaurant"@en .
-
-
-###  http://www.semanticweb.org/gavinkeane/fastfood#Location
-:Location rdf:type owl:Class ;
-          rdfs:label "Location" .
-
-
-###  http://www.semanticweb.org/gavinkeane/fastfood#MexicanRestaurant
-:MexicanRestaurant rdf:type owl:Class ;
-                   rdfs:subClassOf <http://www.semanticweb.org/gavinkeane/fastfoodd#Restaurant> ;
-                   rdfs:label "Mexican Restaurant"@en .
-
-
-###  http://www.semanticweb.org/gavinkeane/fastfood#Pizza_Place
-:Pizza_Place rdf:type owl:Class ;
-             rdfs:subClassOf <http://www.semanticweb.org/gavinkeane/fastfoodd#Restaurant> ;
-             rdfs:label "Pizza Place"@en .
-
-
-###  http://www.semanticweb.org/gavinkeane/fastfood#Sandwich_Place
-:Sandwich_Place rdf:type owl:Class ;
-                rdfs:subClassOf <http://www.semanticweb.org/gavinkeane/fastfoodd#Restaurant> ;
-                rdfs:label "Sandwich Place"@en .
-
-
 ###  http://www.semanticweb.org/gavinkeane/fastfoodd#City
 <http://www.semanticweb.org/gavinkeane/fastfoodd#City> rdf:type owl:Class ;
                                                        rdfs:subClassOf :Location ;
@@ -148,6 +101,7 @@ owl:topDataProperty rdfs:range rdfs:Literal .
 
 ###  http://www.semanticweb.org/gavinkeane/fastfoodd#Postal_Code
 <http://www.semanticweb.org/gavinkeane/fastfoodd#Postal_Code> rdf:type owl:Class ;
+                                                              rdfs:subClassOf :Location ;
                                                               rdfs:label "Postal Code"@en .
 
 
@@ -160,6 +114,53 @@ owl:topDataProperty rdfs:range rdfs:Literal .
 <http://www.semanticweb.org/gavinkeane/fastfoodd#State> rdf:type owl:Class ;
                                                         rdfs:subClassOf :Location ;
                                                         rdfs:label "State"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#BurgerJoint
+:BurgerJoint rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.semanticweb.org/gavinkeane/fastfoodd#Restaurant> ;
+             rdfs:label "Burger Joint"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Chinese_Restaurant
+:Chinese_Restaurant rdf:type owl:Class ;
+                    rdfs:subClassOf <http://www.semanticweb.org/gavinkeane/fastfoodd#Restaurant> ;
+                    rdfs:label "Chinese Restaurant"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#FastFood
+:FastFood rdf:type owl:Class ;
+          rdfs:subClassOf <http://www.semanticweb.org/gavinkeane/fastfoodd#Restaurant> ;
+          rdfs:label "Fast Food"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Italian_Restaurant
+:Italian_Restaurant rdf:type owl:Class ;
+                    rdfs:subClassOf <http://www.semanticweb.org/gavinkeane/fastfoodd#Restaurant> ;
+                    rdfs:label "Italian Restaurant"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Location
+:Location rdf:type owl:Class ;
+          rdfs:label "Location" .
+
+
+###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#MexicanRestaurant
+:MexicanRestaurant rdf:type owl:Class ;
+                   rdfs:subClassOf <http://www.semanticweb.org/gavinkeane/fastfoodd#Restaurant> ;
+                   rdfs:label "Mexican Restaurant"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Pizza_Place
+:Pizza_Place rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.semanticweb.org/gavinkeane/fastfoodd#Restaurant> ;
+             rdfs:label "Pizza Place"@en .
+
+
+###  http://www.semanticweb.org/gavinkeane/ontologies/2022/5/untitled-ontology-3#Sandwich_Place
+:Sandwich_Place rdf:type owl:Class ;
+                rdfs:subClassOf <http://www.semanticweb.org/gavinkeane/fastfoodd#Restaurant> ;
+                rdfs:label "Sandwich Place"@en .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
