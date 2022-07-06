@@ -1,0 +1,63 @@
+#IN OHIO
+PREFIX gk: <http://www.semanticweb.org/gavinkeane/fastfood#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select ?r ?n where { 
+    ?r gk:In_State gk:OH .
+    ?r gk:Name ?n .
+}  LIMIT 50
+
+#MCDONALDS IN DAYTON
+PREFIX gk: <http://www.semanticweb.org/gavinkeane/fastfood#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select ?r ?n ?c where { 
+    ?r gk:In_City gk:Dayton .
+    ?r gk:Name ?n .
+    gk:Dayton rdfs:label ?c
+    FILTER regex(?n, 'McDonald\'s')
+}
+
+#EAST OF -70W
+PREFIX gk: <http://www.semanticweb.org/gavinkeane/fastfood#>
+select ?r ?n ?l where { 
+    ?r gk:Longitude ?l .
+    ?r gk:Name ?n
+    FILTER (xsd:float(?l) > -70)
+}
+
+#BURGER JOINTS
+PREFIX gk: <http://www.semanticweb.org/gavinkeane/fastfood#>
+select ?r ?n where { 
+    ?r gk:Is_Type gk:Burger_Joint .
+    ?r gk:Name ?n .
+}  LIMIT 50
+
+#MEXICAN RESTAURANTS IN OREGON OR CALIFORNIA
+PREFIX gk: <http://www.semanticweb.org/gavinkeane/fastfood#>
+select ?r ?n where { 
+    ?r gk:Is_Type gk:Mexican_Restaurant .
+    {?r gk:In_State gk:OR} UNION {?r gk:In_State gk:CA}
+    ?r gk:Name ?n
+}
+
+#RESTAURANTS WITH ZIP CODE 04401
+PREFIX gk: <http://www.semanticweb.org/gavinkeane/fastfood#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select ?r ?n ?s2 ?c2 ?z  where {
+    ?r gk:Name ?n .
+    ?r gk:Postal_Code ?z .
+    ?r gk:In_City ?c1 .
+    ?c1 rdfs:label ?c2 .
+    ?r gk:In_State ?s1 .
+    ?s1 rdfs:label ?s2 .
+    FILTER regex(?z,'04401') .
+}
+
+#WEBSITE URL BETWEEN 150 AND 200 CHARACTERS
+PREFIX gk: <http://www.semanticweb.org/gavinkeane/fastfood#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+select ?r ?n ?w where {
+    ?r gk:Website ?w .
+    ?r gk:Name ?n
+    FILTER(strlen(xsd:string(?w))>150) .
+    FILTER(strlen(xsd:string(?w))<200) .
+}
